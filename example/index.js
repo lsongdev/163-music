@@ -2,8 +2,11 @@ const NeteaseMusic = require('..')
 
 const nm = new NeteaseMusic()
 
-nm.search('一人饮酒醉').then(data => {
-  console.log('歌曲搜索', data)
+nm.search('Love Song').then(({ result }) => {
+  const { songs } = result;
+  songs.forEach(song => {
+    console.log(`search(#${song.id}):`, song.name);
+  });
 })
 
 nm.playlist('751387161').then(data => {
@@ -26,8 +29,11 @@ nm.lyric('479403027').then(data => {
   console.log('歌词', data)
 })
 
-nm.url('479403027').then(data => {
-  console.log('歌曲地址', data)
+nm.url('82360').then(({ data: resources }) => {
+  resources.forEach(resource => {
+    const { id, url } = resource;
+    console.log(`song(#${id}):`, url);
+  });
 })
 
 nm.song('479403027').then(data => {

@@ -1,6 +1,10 @@
-## 163-music [![163-music](https://img.shields.io/npm/v/163-music.svg)](https://npmjs.org/163-music)
+## 163-music
 
 > Netease Music SDK in Node.js
+
+
+ [![163-music](https://img.shields.io/npm/v/163-music.svg)](https://npmjs.org/163-music) 
+ [![Build Status](https://travis-ci.org/song940/163-music.svg?branch=master)](https://travis-ci.org/song940/163-music)
 
 ### Installation
 
@@ -18,36 +22,42 @@ const nm = new NeteaseMusic({
     cookie: '__Your_Cookies__'
 })
 
-nm.search('Love Song').then(data => {
-    console.log('歌曲搜索', data)
+nm.search('Love Song').then(({ result }) => {
+  const { songs } = result;
+  songs.forEach(song => {
+    console.log(`search(#${song.id}):`, song.name);
+  });
 })
 
 nm.playlist('751387161').then(data => {
-    console.log('歌单', data)
+  console.log('歌单', data)
 })
 
 nm.picture('19124905253588326', 400).then(data => {
-    console.log('图片地址', data)
+  console.log('图片地址', data)
 })
 
 nm.artist('4130').then(data => {
-    console.log('艺术家', data)
+  console.log('艺术家', data)
 })
 
 nm.album('35327877').then(data => {
-    console.log('歌单', data)
+  console.log('歌单', data)
 })
 
 nm.lyric('479403027').then(data => {
-    console.log('歌词', data)
+  console.log('歌词', data)
 })
 
-nm.url('479403027').then(data => {
-    console.log('歌曲地址', data)
+nm.url('82360').then(({ data: resources }) => {
+  resources.forEach(resource => {
+    const { id, url } = resource;
+    console.log(`song(#${id}):`, url);
+  });
 })
 
 nm.song('479403027').then(data => {
-    console.log('歌曲详情', data)
+  console.log('歌曲详情', data)
 })
 ```
 
