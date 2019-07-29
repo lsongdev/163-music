@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node test"
   },
+  "bin": "./bin/163-music.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/song940/163-music.git"

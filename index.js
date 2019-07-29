@@ -117,7 +117,7 @@ class NeteaseMusic extends EventEmitter {
    * @param {*} offset 
    * @param {*} limit 
    */
-  search(keyword, offset = 0, limit = 3) {
+  search(keyword, offset = 0, limit = 10) {
     return this.invoke('POST', '/api/cloudsearch/pc', {
       s: keyword,
       type: 1,

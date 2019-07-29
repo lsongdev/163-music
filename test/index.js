@@ -15,10 +15,10 @@ describe('测试网易云接口', () => {
   })
 
   it('测试歌单', function() {
-    return nm.playlist('751387161')
+    return nm.playlist('2905047708')
       .then(data => {
         assert.ok(data);
-        assert.equal(data.playlist.trackIds.length, 22);
+        assert.equal(data.playlist.trackIds.length, 7);
       });
   })
 
